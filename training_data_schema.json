@@ -1,0 +1,45 @@
+{
+  "title": "Actsafe OHS Navigator API Schema (STAR System Integration)",
+  "type": "array",
+  "description": "The expected data structure for a list of OHS training requirements used by the React component. This data must be provided as a single list/array where each item represents a required training course.",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "type",
+      "link",
+      "industry_id",
+      "role_name"
+    ],
+    "properties": {
+      "id": {
+        "type": "number",
+        "description": "Unique identifier for the course (e.g., Actsafe course ID)."
+      },
+      "name": {
+        "type": "string",
+        "description": "The full name of the training course (e.g., 'Motion Picture Safety Awareness')."
+      },
+      "type": {
+        "type": "string",
+        "enum": ["Mandatory", "Recommended"],
+        "description": "The requirement status: 'Mandatory' or 'Recommended'."
+      },
+      "link": {
+        "type": "string",
+        "description": "The direct URL to the course page on actsafe.ca for registration/details."
+      },
+      "industry_id": {
+        "type": "string",
+        "enum": ["mp", "pa", "le"],
+        "description": "The industry key this training applies to ('mp' for Motion Picture, 'pa' for Performing Arts, 'le' for Live Events)."
+      },
+      "role_name": {
+        "type": "string",
+        "description": "The exact job role name this training applies to (must match the keys in the component's internal logic, e.g., 'Head of Department / Supervisor')."
+      }
+    }
+  }
+}
+
