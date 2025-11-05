@@ -127,9 +127,10 @@
         const ACTSAFE_COURSE_BASE_URL = 'https://actsafe.ca/courses-workshops/';
         const ACTSAFE_CONSULTATION_URL = 'https://actsafe.ca/contact-us/';
         const WHMIS_URL = 'https://actsafe.ca/courses-workshops/whmis-2025/';
-        // --- THIS IS THE CORRECTED LINK PROVIDED BY THE USER ---
         const LPEC_URL = 'https://actsafe.ca/courses-workshops/live-performance-electrical-certification/';
-
+        const TCP_URL = 'https://www.bccsa.ca/tcp_program.php'; // BC Construction Safety Alliance is the provider
+        const FIREARMS_URL = 'https://actsafe.ca/topic/weapons/props-firearms-safety-course/';
+        const PYRO_URL = 'https://actsafe.ca/topic/open-flames/pyrotechnic-special-effects/';
         
         const INDUSTRIES = [
             { id: 'mp', name: 'Motion Picture', iconName: 'Briefcase' },
@@ -137,7 +138,7 @@
             { id: 'le', name: 'Live Events', iconName: 'Zap' },
         ];
         
-        // --- ALL WHMIS & LPEC LINKS UPDATED TO THE CORRECT URLS ---
+        // --- EXPANDED TRAINING DATA WITH NEW ROLES & CORRECTED SPFX LINKS ---
         const TRAINING_DATA = {
             'mp': {
                 'Production Assistant / Entry-Level Crew': [
@@ -158,6 +159,39 @@
                     { id: 20, name: 'Motion Picture Safety for Supervisors', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-for-supervisors/` },
                     { id: 21, name: 'Joint Health & Safety Committee Fundamentals', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}joint-health-safety-committee-fundamentals/` }, 
                 ],
+                'Location Manager / Location Scout': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 20, name: 'Motion Picture Safety for Supervisors', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-for-supervisors/` },
+                    { id: 32, name: 'Motion Picture Risk Assessment', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL }, // Specialized course
+                    { id: 33, name: 'Traffic Control Person (TCP)', type: 'Recommended', link: TCP_URL }, // External provider
+                ],
+                'Production Manager / Coordinator': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 20, name: 'Motion Picture Safety for Supervisors', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-for-supervisors/` },
+                    { id: 29, name: 'Workplace Bullying & Harassment', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` },
+                    { id: 21, name: 'Joint Health & Safety Committee Fundamentals', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}joint-health-safety-committee-fundamentals/` },
+                    { id: 30, name: 'Ergonomics for Office & Set', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
+                'Transportation Department (Driver, Captain)': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 20, name: 'Motion Picture Safety for Supervisors', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-for-supervisors/` },
+                    { id: 33, name: 'Traffic Control Person (TCP)', type: 'Recommended', link: TCP_URL },
+                    { id: 34, name: 'Fatigue Management', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
+                'Construction / Painter / Greens': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 19, name: 'Fall Protection Training', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}fall-protection/` },
+                    { id: 35, name: 'Power Tool Safety', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                    { id: 36, name: 'Scaffold Safety Awareness', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
+                'Costume / Hair / Makeup': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 30, name: 'Ergonomics', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
                 'Set Decorator / Props Department': [
                     { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
                     { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL }, 
@@ -168,6 +202,19 @@
                     { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
                     { id: 29, name: 'Workplace Bullying & Harassment', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` }, 
                     { id: 30, name: 'Ergonomics for Office & Set', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL }, 
+                ],
+                'Sound Department (Mixer, Boom Op)': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Recommended', link: WHMIS_URL },
+                    { id: 30, name: 'Ergonomics', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                    { id: 37, name: 'Hearing Protection', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
+                'Special Effects (SPFX) / Stunts': [
+                    { id: 1, name: 'Motion Picture Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 19, name: 'Fall Protection Training', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}fall-protection/` },
+                    { id: 38, name: 'Props & Firearms Safety Course', type: 'Recommended', link: FIREARMS_URL }, 
+                    { id: 39, name: 'Pyrotechnic Special Effects', type: 'Recommended', link: PYRO_URL }, 
                 ],
                 'Other (Request OHS Advice)': [
                     { id: 1, name: 'Motion Picture Safety Awareness (Foundation)', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}motion-picture-safety-awareness/` },
@@ -193,6 +240,12 @@
                     { id: 24, name: 'Performing Arts Safety for Supervisors', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-for-supervisors/` }, 
                     { id: 21, name: 'Joint Health & Safety Committee Fundamentals', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}joint-health-safety-committee-fundamentals/` }, 
                 ],
+                'Performer / Artist (Actor, Dancer, Musician)': [
+                    { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
+                    { id: 29, name: 'Workplace Bullying & Harassment', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` },
+                    { id: 30, name: 'Ergonomics for Performers', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                    { id: 37, name: 'Hearing Protection', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
                 'Costume / Wardrobe Technician': [
                     { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
                     { id: 17, name: 'WHMIS', type: 'Recommended', link: WHMIS_URL }, 
@@ -203,17 +256,30 @@
                     { id: 29, name: 'Workplace Bullying & Harassment', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` }, 
                     { id: 30, name: 'Ergonomics for Office & Set', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL }, 
                 ],
+                'Front of House (FOH) Staff (Box Office, Usher)': [
+                    { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
+                    { id: 4, name: 'Occupational First Aid - Basic', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}occupational-first-aid-basic/` },
+                    { id: 29, name: 'Workplace Bullying & Harassment', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` },
+                    { id: 40, name: 'Emergency Evacuation Procedures', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                ],
                 'Other (Request OHS Advice)': [
+                    // --- THIS IS THE FIXED LINE ---
                     { id: 22, name: 'Performing Arts Safety Awareness (Foundation)', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
                     { id: 16, name: 'Request OHS Consultation for Specialized Role', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
                 ],
             },
             'le': {
+                'Stagehand / General Crew (Load-in/out)': [
+                    { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
+                    { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL },
+                    { id: 31, name: 'Manual Material Handling', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL },
+                    { id: 19, name: 'Fall Protection Training', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}fall-protection/` },
+                ],
                 'Stage Rigger / Fly Crew': [
                     { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
                     { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL }, 
                     { id: 19, name: 'Fall Protection Training', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}fall-protection/` }, 
-                    { id: 25, name: 'Live Performance Electrical Certification', type: 'Recommended', link: LPEC_URL }, // FIXED
+                    { id: 25, name: 'Live Performance Electrical Certification', type: 'Recommended', link: LPEC_URL }, 
                 ],
                 'Forklift / Aerial Lift Operator': [
                     { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
@@ -230,7 +296,13 @@
                     { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
                     { id: 17, name: 'WHMIS', type: 'Mandatory', link: WHMIS_URL }, 
                     { id: 31, name: 'Manual Material Handling', type: 'Recommended', link: ACTSAFE_CONSULTATION_URL }, 
-                    { id: 25, name: 'Live Performance Electrical Certification', type: 'Recommended', link: LPEC_URL }, // FIXED
+                    { id: 25, name: 'Live Performance Electrical Certification', type: 'Recommended', link: LPEC_URL }, 
+                ],
+                'Event Security / Guest Services': [
+                    { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
+                    { id: 4, name: 'Occupational First Aid - Basic', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}occupational-first-aid-basic/` },
+                    { id: 29, name: 'Workplace Bullying & Harassment', type: 'Recommended', link: `${ACTSAFE_COURSE_BASE_URL}anti-bullying-and-harassment/` },
+                    { id: 9, name: 'Crowd Management Safety (Resource)', type: 'Recommended', link: `https://actsafe.ca/crowd-management/` },
                 ],
                 'Event Planner / Administrator': [
                     { id: 22, name: 'Performing Arts Safety Awareness', type: 'Mandatory', link: `${ACTSAFE_COURSE_BASE_URL}performing-arts-safety-awareness/` },
